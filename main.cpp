@@ -121,10 +121,13 @@ vector<string> keepLastColumn(vector<string> lines){
 }
 
 // =================================================================
-// Month
+// Format the lines to be printed in the output file.
 //
 // @param vector of strings, lines.
-// @complexity: O(n), where n is the number of lines in the vector.
+// @param ofstream, output file.
+// @param string, name of the month.
+// @param string, number of the month.
+// @complexity O(n), where n is the number of lines in the vector.
 // =================================================================
 void month(vector<string> filteredLines, ofstream& output, string month, string date){
 	vector<string> aux, M, R, lastColumnM, lastColumnR;
@@ -154,8 +157,11 @@ void month(vector<string> filteredLines, ofstream& output, string month, string 
 
 int main(int argc, char* argv[]) {
 	string delimiter = " ", token, firstLine;
-	vector<string> lines, firstLineSplit, filteredLines, jan, feb, mar, 
-	apr, may, jun, jul, aug, sep, oct, nov, dec, M, R, lastColumnM, lastColumnR;
+	vector<string> lines, firstLineSplit, filteredLines;
+	string monthArray[12] = {"jan", "feb", "mar", "apr", "may", "jun",
+	 "jul", "aug", "sep", "oct", "nov", "dec"};
+	string dateArray[12] = {"-01-", "-02-", "-03-", "-04-", "-05-", "-06-",
+	 "-07-", "-08-", "-09-", "-10-", "-11-", "-12-"};
 	ifstream input(argv[1]);
 	ofstream output(argv[2]);
 
@@ -185,18 +191,10 @@ int main(int argc, char* argv[]) {
 	// sort lines by date
 	filteredLines = sortLines(filteredLines);
 
-	month(filteredLines, output, "jan", "-01-");
-	month(filteredLines, output, "feb", "-02-");
-	month(filteredLines, output, "mar", "-03-");
-	month(filteredLines, output, "apr", "-04-");
-	month(filteredLines, output, "may", "-05-");
-	month(filteredLines, output, "jun", "-06-");
-	month(filteredLines, output, "jul", "-07-");
-	month(filteredLines, output, "aug", "-08-");
-	month(filteredLines, output, "sep", "-09-");
-	month(filteredLines, output, "oct", "-10-");
-	month(filteredLines, output, "nov", "-11-");
-	month(filteredLines, output, "dec", "-12-");
+	// format output
+	for (int i = 0; i < 12; i++){
+		month(filteredLines, output, monthArray[i], dateArray[i]);
+	}
 
 	input.close();
 	output.close();
