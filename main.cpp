@@ -126,15 +126,13 @@ vector<string> keepLastColumn(vector<string> lines){
 // @param vector of strings, lines.
 // @complexity: O(n), where n is the number of lines in the vector.
 // =================================================================
-void month(vector<string> filteredLines, ofstream& output){
-	vector<string>jan, feb, mar, 
-	apr, may, jun, jul, aug, sep, oct, nov, dec, M, R, lastColumnM, lastColumnR;
+void month(vector<string> filteredLines, ofstream& output, string month, string date){
+	vector<string> aux, M, R, lastColumnM, lastColumnR;
 
-	// jan
-	output << "jan" << endl;
-	jan = filter(filteredLines, "-01-");
-	M = filter(jan, " M ");
-	R = filter(jan, " R ");
+	output << month << endl;
+	aux = filter(filteredLines, date);
+	M = filter(aux, " M ");
+	R = filter(aux, " R ");
 	lastColumnM = keepLastColumn(M);
 	lastColumnR = keepLastColumn(R);
 	if(M.size() > 0){
@@ -150,239 +148,7 @@ void month(vector<string> filteredLines, ofstream& output){
 			output << line << " ";
 		}
 	}
-
-	// feb
-	output << endl << "feb" << endl;
-	feb = filter(filteredLines, "-02-");
-	M = filter(feb, " M ");
-	R = filter(feb, " R ");
-	lastColumnM = keepLastColumn(M);
-	lastColumnR = keepLastColumn(R);
-	if(M.size() > 0){
-		output << "M " << M.size() << ": "; 
-		for (string line : lastColumnM){
-			output << line << " ";
-		}
-		output << endl;
-	}
-	if(R.size() > 0){
-		output << "R " << R.size() << ": ";
-		for (string line : lastColumnR){
-			output << line << " ";
-		}
-	}
-
-	// mar
-	output << endl << "mar" << endl;
-	mar = filter(filteredLines, "-03-");
-	M = filter(mar, " M ");
-	R = filter(mar, " R ");
-	lastColumnM = keepLastColumn(M);
-	lastColumnR = keepLastColumn(R);
-	if(M.size() > 0){
-		output << "M " << M.size() << ": "; 
-		for (string line : lastColumnM){
-			output << line << " ";
-		}
-		output << endl;
-	}
-	if(R.size() > 0){
-		output << "R " << R.size() << ": ";
-		for (string line : lastColumnR){
-			output << line << " ";
-		}
-	}
-
-	// apr
-	output << endl << "apr" << endl;
-	apr = filter(filteredLines, "-04-");
-	M = filter(apr, " M ");
-	R = filter(apr, " R ");
-	lastColumnM = keepLastColumn(M);
-	lastColumnR = keepLastColumn(R);
-	if(M.size() > 0){
-		output << "M " << M.size() << ": "; 
-		for (string line : lastColumnM){
-			output << line << " ";
-		}
-		output << endl;
-	}
-	if(R.size() > 0){
-		output << "R " << R.size() << ": ";
-		for (string line : lastColumnR){
-			output << line << " ";
-		}
-	}
-
-	// may
-	output << endl << "may" << endl;
-	may = filter(filteredLines, "-05-");
-	M = filter(may, " M ");
-	R = filter(may, " R ");
-	lastColumnM = keepLastColumn(M);
-	lastColumnR = keepLastColumn(R);
-	if(M.size() > 0){
-		output << "M " << M.size() << ": "; 
-		for (string line : lastColumnM){
-			output << line << " ";
-		}
-		output << endl;
-	}
-	if(R.size() > 0){
-		output << "R " << R.size() << ": ";
-		for (string line : lastColumnR){
-			output << line << " ";
-		}
-	}
-
-	// jun
-	output << endl << "jun" << endl;
-	jun = filter(filteredLines, "-06-");
-	M = filter(jun, " M ");
-	R = filter(jun, " R ");
-	lastColumnM = keepLastColumn(M);
-	lastColumnR = keepLastColumn(R);
-	if(M.size() > 0){
-		output << "M " << M.size() << ": "; 
-		for (string line : lastColumnM){
-			output << line << " ";
-		}
-		output << endl;
-	}
-	if(R.size() > 0){
-		output << "R " << R.size() << ": ";
-		for (string line : lastColumnR){
-			output << line << " ";
-		}
-	}
-
-	// jul
-	output << endl << "jul" << endl;
-	jul = filter(filteredLines, "-07-");
-	M = filter(jul, " M ");
-	R = filter(jul, " R ");
-	lastColumnM = keepLastColumn(M);
-	lastColumnR = keepLastColumn(R);
-	if(M.size() > 0){
-		output << "M " << M.size() << ": "; 
-		for (string line : lastColumnM){
-			output << line << " ";
-		}
-		output << endl;
-	}
-	if(R.size() > 0){
-		output << "R " << R.size() << ": ";
-		for (string line : lastColumnR){
-			output << line << " ";
-		}
-	}
-
-	// aug
-	output << endl << "aug" << endl;
-	aug = filter(filteredLines, "-08-");
-	M = filter(aug, " M ");
-	R = filter(aug, " R ");
-	lastColumnM = keepLastColumn(M);
-	lastColumnR = keepLastColumn(R);
-	if(M.size() > 0){
-		output << "M " << M.size() << ": "; 
-		for (string line : lastColumnM){
-			output << line << " ";
-		}
-		output << endl;
-	}
-	if(R.size() > 0){
-		output << "R " << R.size() << ": ";
-		for (string line : lastColumnR){
-			output << line << " ";
-		}
-	}
-	
-	// sep
-	output << endl << "sep" << endl;
-	sep = filter(filteredLines, "-09-");
-	M = filter(sep, " M ");
-	R = filter(sep, " R ");
-	lastColumnM = keepLastColumn(M);
-	lastColumnR = keepLastColumn(R);
-	if(M.size() > 0){
-		output << "M " << M.size() << ": "; 
-		for (string line : lastColumnM){
-			output << line << " ";
-		}
-		output << endl;
-	}
-	if(R.size() > 0){
-		output << "R " << R.size() << ": ";
-		for (string line : lastColumnR){
-			output << line << " ";
-		}
-	}
-
-	// oct
-	output << endl << "oct" << endl;
-	oct = filter(filteredLines, "-10-");
-	M = filter(oct, " M ");
-	R = filter(oct, " R ");
-	lastColumnM = keepLastColumn(M);
-	lastColumnR = keepLastColumn(R);
-	if(M.size() > 0){
-		output << "M " << M.size() << ": "; 
-		for (string line : lastColumnM){
-			output << line << " ";
-		}
-		output << endl;
-	}
-	if(R.size() > 0){
-		output << "R " << R.size() << ": ";
-		for (string line : lastColumnR){
-			output << line << " ";
-		}
-	}
-
-	// nov
-	output << endl << "nov" << endl;
-	nov = filter(filteredLines, "-11-");
-	M = filter(nov, " M ");
-	R = filter(nov, " R ");
-	lastColumnM = keepLastColumn(M);
-	lastColumnR = keepLastColumn(R);
-	if(M.size() > 0){
-		output << "M " << M.size() << ": "; 
-		for (string line : lastColumnM){
-			output << line << " ";
-		}
-		output << endl;
-	}
-	if(R.size() > 0){
-		output << "R " << R.size() << ": ";
-		for (string line : lastColumnR){
-			output << line << " ";
-		}
-	}
-
-	// dec
-	output << endl << "dec" << endl;
-	dec = filter(filteredLines, "-12-");
-	M = filter(dec, " M ");
-	R = filter(dec, " R ");
-	lastColumnM = keepLastColumn(M);
-	lastColumnR = keepLastColumn(R);
-	if(M.size() > 0){
-		output << "M " << M.size() << ": "; 
-		for (string line : lastColumnM){
-			output << line << " ";
-		}
-		output << endl;
-	}
-	if(R.size() > 0){
-		output << "R " << R.size() << ": ";
-		for (string line : lastColumnR){
-			output << line << " ";
-		}
-	}
-
-	output.close();
+	output << endl;
 }
 
 
@@ -419,9 +185,21 @@ int main(int argc, char* argv[]) {
 	// sort lines by date
 	filteredLines = sortLines(filteredLines);
 
-	month(filteredLines, output);
+	month(filteredLines, output, "jan", "-01-");
+	month(filteredLines, output, "feb", "-02-");
+	month(filteredLines, output, "mar", "-03-");
+	month(filteredLines, output, "apr", "-04-");
+	month(filteredLines, output, "may", "-05-");
+	month(filteredLines, output, "jun", "-06-");
+	month(filteredLines, output, "jul", "-07-");
+	month(filteredLines, output, "aug", "-08-");
+	month(filteredLines, output, "sep", "-09-");
+	month(filteredLines, output, "oct", "-10-");
+	month(filteredLines, output, "nov", "-11-");
+	month(filteredLines, output, "dec", "-12-");
 
 	input.close();
+	output.close();
 
 	return 0;
 }
